@@ -16,6 +16,7 @@ https://www.ruby-lang.org/en/news/2018/03/28/ruby-2-5-1-released/
 ruby test_main.rb
 
 ```
+
 ================================================
 
 `test_main.rb` - основной файл программы
