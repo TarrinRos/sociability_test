@@ -3,6 +3,7 @@
 # Тест "Ваш уровень общительности" OOP
 # ==============================================================
 
+require_relative 'lib/question'
 require_relative 'lib/answers_processing'
 require_relative 'lib/result_printer'
 
@@ -23,14 +24,13 @@ puts "Привет тебе #{tester_name}. Пройди тест на общи�
 # ==============================================================
 # Вывод вопросов и обработка ответов
 # ==============================================================
-answers = AnswersProcessing.new
-
 current_path = File.dirname(__FILE__)
 
-questions_path = "#{current_path}/data/questions_list.txt"
+question = Question.new(current_path)
 
-questions = File.open(questions_path)
-questions.each_line do |line|
+answers = AnswersProcessing.new
+
+question.questions.each do |line|
   puts '============================================='
 
   puts line
@@ -45,7 +45,6 @@ questions.each_line do |line|
   # Отправляет введенные данные на обработку
   answers.save_input!(user_input)
 end
-questions.close
 
 # Суммирует полученные баллы
 answers.calculate!
