@@ -54,6 +54,24 @@ answers.calculate!
 # Вывод результата теста
 # ==============================================================
 
-result = ResultPrinter.new(current_path, answers)
+result = ResultPrinter.new(current_path)
+
+puts '============================================='
+
+puts "Количество ответов:"
+
+puts "да - #{answers.answers.count(2)}"
+
+puts "нет - #{answers.answers.count(0)}"
+
+puts "иногда - #{answers.answers.count(1)}"
+
+puts "Общее количество баллов: #{answers.all}"
+
+puts '============================================='
+
+puts ''
+
+puts "Результат вашего теста:"
 
 puts result.print(answers)

@@ -1,12 +1,11 @@
 class ResultPrinter
-  def initialize(current_path, answers)
+  def initialize(current_path)
     result_path = "#{current_path}/data/results_list.txt"
 
     @result = File.readlines(result_path)
   end
 
   def print(answers)
-    "Результат вашего теста:"
     if answers.all.between?(30, 32)
       @result[0]
     elsif answers.all.between?(25, 29)
@@ -24,18 +23,3 @@ class ResultPrinter
     end
   end
 end
-
-#
-# '============================================='
-#
-# "Количество ответов:"
-#
-# "да - #{answers.answers.count(2)}"
-#
-# "нет - #{answers.answers.count(0)}"
-#
-# "иногда - #{answers.answers.count(1)}"
-#
-# "Общее количество баллов: #{answers.all}"
-# '============================================='
-# ''
