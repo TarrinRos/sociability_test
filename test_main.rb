@@ -1,9 +1,10 @@
-# Lesson12, task4
+# Lesson12, task4 / Lesson 26 - Refactoring
 # ==============================================================
 # Тест "Ваш уровень общительности" OOP
 # ==============================================================
 
-require_relative 'answers_processing'
+require_relative 'lib/answers_processing'
+require_relative 'lib/result_printer'
 
 # ==============================================================
 # Приветствие
@@ -26,7 +27,7 @@ answers = AnswersProcessing.new
 
 current_path = File.dirname(__FILE__)
 
-questions_path = "#{current_path}/questions_list.txt"
+questions_path = "#{current_path}/data/questions_list.txt"
 
 questions = File.open(questions_path)
 questions.each_line do |line|
@@ -52,41 +53,7 @@ answers.calculate!
 # ==============================================================
 # Вывод результата теста
 # ==============================================================
-puts '============================================='
 
-puts "Количество ответов:"
-puts "да - #{answers.answers.count(2)}"
-puts "нет - #{answers.answers.count(0)}"
-puts "иногда - #{answers.answers.count(1)}"
+result = ResultPrinter.new(current_path, answers)
 
-puts "Общее количество баллов: #{answers.all}"
-
-puts '============================================='
-
-puts ''
-
-puts "Результат вашего теста:"
-
-puts ''
-
-result_path = "#{current_path}/results_list.txt"
-
-result = File.readlines(result_path)
-
-res = if answers.all.between?(30, 32)
-        result[0]
-      elsif answers.all.between?(25, 29)
-        result[1]
-      elsif answers.all.between?(19, 24)
-        result[2]
-      elsif answers.all.between?(14, 18)
-        result[3]
-      elsif answers.all.between?(9, 13)
-        result[4]
-      elsif answers.all.between?(4, 8)
-        result[5]
-      else
-        result[6]
-      end
-
-puts res
+puts result.print(answers)
