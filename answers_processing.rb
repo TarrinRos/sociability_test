@@ -1,7 +1,9 @@
 class AnswersProcessing
+  attr_reader :answers, :all
+
   def initialize
     @answers = []
-    @answers_all = 0
+    @all = 0
   end
 
   # Обработка пользовательского ввода
@@ -16,18 +18,8 @@ class AnswersProcessing
     end
   end
 
-  # Массив ответов для подсчета количества каждого варианта
-  def amount
-    @answers
-  end
-
   # Суммирует полученные баллы
   def calculate!
-    @answers_all = @answers.sum
-  end
-
-  # Возвращает общее количество баллов
-  def all
-    @answers_all
+    @all = @answers.sum
   end
 end
