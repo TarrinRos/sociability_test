@@ -45,11 +45,11 @@ puts '============================================='
 
 puts "Количество ответов:"
 
-puts "да - #{answers.answers.count(2)}"
+puts "да - #{answers.variant.count(2)}"
 
-puts "нет - #{answers.answers.count(0)}"
+puts "нет - #{answers.variant.count(0)}"
 
-puts "иногда - #{answers.answers.count(1)}"
+puts "иногда - #{answers.variant.count(1)}"
 
 puts "Общее количество баллов: #{answers.all}"
 

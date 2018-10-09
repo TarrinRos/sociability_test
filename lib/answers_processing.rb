@@ -1,8 +1,8 @@
 class AnswersProcessing
-  attr_reader :answers, :all
+  attr_reader :variant, :all
 
   def initialize
-    @answers = []
+    @variant = []
     @all = 0
   end
 
@@ -10,16 +10,16 @@ class AnswersProcessing
   def save_input!(user_input)
     # Добавляет баллы в массив
     if user_input == 'y'
-      @answers.push(2)
+      @variant.push(2)
     elsif user_input == 's'
-      @answers.push(1)
+      @variant.push(1)
     else
-      @answers.push(0)
+      @variant.push(0)
     end
   end
 
   # Суммирует полученные баллы
   def calculate!
-    @all = @answers.sum
+    @all = @variant.sum
   end
 end
