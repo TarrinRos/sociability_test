@@ -30,5 +30,3 @@ __Автор программы:__
 Alexander 'Tarrin' Smirnov
 
 tarindis@gmail.com
-
-+371 29585454 (Riga)
